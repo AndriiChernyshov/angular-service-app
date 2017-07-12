@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-
+import {LoginUser} from '../../models/login-user.model';
 import {DataStorageService} from '../../services/data-storage.service';
 
 @Component({
@@ -9,22 +9,21 @@ import {DataStorageService} from '../../services/data-storage.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private name : string;
-  private userName: string;
+  private loginUser : LoginUser;
 
   constructor(private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
-    this.userName = this.dataStorageService.getName();
+    this.loginUser = this.dataStorageService.getLoginUser();
   }
 
   saveUser():void{
-    this.dataStorageService.saveName(this.userName);
+    this.dataStorageService.saveLoginUser(this.loginUser);
   }
 
   clearUser():void{
-    this.dataStorageService.clearUser();
-    this.userName = this.dataStorageService.getName();
+    this.dataStorageService.clearLoginUser();
+    this.loginUser = this.dataStorageService.getLoginUser();
   }
 
 }
