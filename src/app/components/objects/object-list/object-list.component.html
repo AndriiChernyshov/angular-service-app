@@ -1,0 +1,6 @@
+<p>
+  object-list works!
+</p>
+<app-object-item *ngFor="let objectItem of objectDefinitionItems" [objectItem]="objectItem">
+</app-object-item>
+<input type="button" (click)="updateObjectDefinition()"/>

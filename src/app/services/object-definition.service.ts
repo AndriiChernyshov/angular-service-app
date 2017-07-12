@@ -11,10 +11,21 @@ const OBJECTDEFINITIONS: ObjectDefinition[] = [
 @Injectable()
 export class ObjectDefinitionService {
 
+  private _objects : ObjectDefinition[];
    
-  constructor() { }
+  constructor() { 
+    this._objects = OBJECTDEFINITIONS;
+  }
 
   public listObjectDefinitions(): ObjectDefinition[]{
-    return OBJECTDEFINITIONS;
+    return this._objects;
+  }
+
+  public addObjectDefinition(name:string, version: number)
+  {
+    var id: number = 0;
+    if(this._objects.length > 0)
+      id = this._objects[this._objects.length-1].id +1;
+    this._objects.push(new ObjectDefinition(id, name, version))
   }
 }
