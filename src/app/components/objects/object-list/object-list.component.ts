@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
 
 import { ObjectDefinition } from '../../../models/object-definition.model';
 import {ObjectDefinitionService} from '../../../services/object-definition.service';
@@ -12,16 +12,19 @@ export class ObjectListComponent implements OnInit {
 
   private objectDefinitionItems: ObjectDefinition[];
   
-  constructor(private objectDefinitionService : ObjectDefinitionService) { }
+  constructor(@Optional() private objectDefinitionService : ObjectDefinitionService) { }
 
   ngOnInit() {
     console.log('ngOnInit: object-list.component' );
-    this.objectDefinitionItems = this.objectDefinitionService.listObjectDefinitions();
+    this.objectDefinitionItems = this.objectDefinitionService.listSortedObjectDefinitions();
   }
 
-  updateObjectDefinition():void{
-    console.log(this.objectDefinitionItems );
-    console.log(this.objectDefinitionService.listObjectDefinitions());
-     //this.objectDefinitionItems = this.objectDefinitionService.listObjectDefinitions();
+  onDeleteObjectDefinitionItem(item:ObjectDefinition):void
+  {
+    this.objectDefinitionService.removeObjectDefinition(item);
+  }
+
+  onRefreshItem():void{
+    this.objectDefinitionItems = this.objectDefinitionService.listSortedObjectDefinitions();
   }
 }

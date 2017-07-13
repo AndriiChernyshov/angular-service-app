@@ -18,14 +18,46 @@ export class ObjectDefinitionService {
   }
 
   public listObjectDefinitions(): ObjectDefinition[]{
+    console.log('listObjectDefinitions');
     return this._objects;
+  }
+
+  public listSortedObjectDefinitions(): ObjectDefinition[]{
+    console.log('listSortedObjectDefinitions');
+    return this._objects.sort((a:ObjectDefinition, b:ObjectDefinition) => b.version - a.version);
   }
 
   public addObjectDefinition(name:string, version: number)
   {
-    var id: number = 0;
-    if(this._objects.length > 0)
-      id = this._objects[this._objects.length-1].id +1;
-    this._objects.push(new ObjectDefinition(id, name, version))
+    console.log('addObjectDefinition');
+    
+    let maxId = 1;
+    if(this._objects.length > 0){
+      
+      this._objects.forEach((item) => {
+        if(item.id > maxId)
+          maxId = item.id;
+      })
+
+      maxId+=1;
+    }
+
+    this._objects.push(new ObjectDefinition(maxId, name, version));
+  }
+
+  public removeObjectDefinition(itemToRemove:ObjectDefinition):void{
+    console.log('removeObjectDefinition');
+    let i = -1;
+
+    this._objects.forEach((item, index) => {
+      if (item.id === itemToRemove.id ) {
+        i = index;
+        return false;
+      }
+    });
+    
+    if (i > -1) {
+      this._objects.splice(i, 1);
+    }
   }
 }

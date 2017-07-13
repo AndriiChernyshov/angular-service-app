@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
+
+import {ObjectDefinition} from '../../../models/object-definition.model';
+
+import {ObjectDefinitionService} from '../../../services/object-definition.service';
 
 @Component({
   selector: 'app-object-item-new',
@@ -7,13 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ObjectItemNewComponent implements OnInit {
 
-  constructor() { }
+  
+  constructor(@Optional() private objectDefinitionService: ObjectDefinitionService) { }
 
   ngOnInit() {
   }
 
   addObjectDefinition(name: HTMLInputElement, version: HTMLInputElement): boolean{
-    console.log(`Adding ${name.value} and version ${version.value}`);
+  
+    this.objectDefinitionService.addObjectDefinition(name.value, Number(version.value))
+  
+    name.value = '';
+    version.value = '';
     return false;
   }
 }

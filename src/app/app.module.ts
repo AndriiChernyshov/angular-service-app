@@ -12,6 +12,7 @@ import { ObjectItemComponent } from './components/objects/object-item/object-ite
 import { DataStorageService } from './services/data-storage.service';
 import { ObjectDefinitionService } from './services/object-definition.service';
 import { ObjectItemNewComponent } from './components/objects/object-item-new/object-item-new.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ObjectItemNewComponent } from './components/objects/object-item-new/obj
     LoginComponent,
     ObjectListComponent,
     ObjectItemComponent,
-    ObjectItemNewComponent
+    ObjectItemNewComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

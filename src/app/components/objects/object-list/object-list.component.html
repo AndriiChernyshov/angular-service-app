@@ -1,6 +1,3 @@
-<p>
-  object-list works!
-</p>
-<app-object-item *ngFor="let objectItem of objectDefinitionItems" [objectItem]="objectItem">
+
+<app-object-item *ngFor="let objectItem of objectDefinitionItems" [objectItem]="objectItem" (deleteObjectDefinitionItem)="onDeleteObjectDefinitionItem($event)" (refreshItem)="onRefreshItem()" appHighlight="red" >
 </app-object-item>
-<input type="button" (click)="updateObjectDefinition()"/>
