@@ -7,6 +7,6 @@
 </div>
 <div>
   <label>Version:</label>
-  <input type="number" min="0.1" step="0.1" name="version" #newVersion/>
+  <input type="number" min="15" step="0.1" name="version" #newVersion/>
 </div>
-<button (click)="addObjectDefinition(newName, newVersion)">Add new object</button>
+<button (click)="addObjectDefinition(newName, newVersion)" [appFontSize]="newVersion">Add new object</button>

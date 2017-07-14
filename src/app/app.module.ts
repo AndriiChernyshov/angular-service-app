@@ -13,6 +13,7 @@ import { DataStorageService } from './services/data-storage.service';
 import { ObjectDefinitionService } from './services/object-definition.service';
 import { ObjectItemNewComponent } from './components/objects/object-item-new/object-item-new.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { FontSizeDirective } from './directives/font-size.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HighlightDirective } from './directives/highlight.directive';
     ObjectListComponent,
     ObjectItemComponent,
     ObjectItemNewComponent,
-    HighlightDirective
+    HighlightDirective,
+    FontSizeDirective
   ],
   imports: [
     BrowserModule,

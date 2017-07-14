@@ -10,8 +10,8 @@ import {ObjectDefinitionService} from '../../../services/object-definition.servi
   styleUrls: ['./object-item-new.component.css']
 })
 export class ObjectItemNewComponent implements OnInit {
-
   
+  private ver: string;
   constructor(@Optional() private objectDefinitionService: ObjectDefinitionService) { }
 
   ngOnInit() {
@@ -20,7 +20,7 @@ export class ObjectItemNewComponent implements OnInit {
   addObjectDefinition(name: HTMLInputElement, version: HTMLInputElement): boolean{
   
     this.objectDefinitionService.addObjectDefinition(name.value, Number(version.value))
-  
+    this.ver = version.value;
     name.value = '';
     version.value = '';
     return false;
