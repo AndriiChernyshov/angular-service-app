@@ -1,8 +1,10 @@
-<label>User name:</label>
-<input [(ngModel)]="loginUser.login" placeholder="user name"/>
-<label>User email:</label>
-<input [(ngModel)]="loginUser.email" placeholder="user email"/>
 <div>
-  <input type="button" (click)="saveUser()" value="Save User"/>
-  <input type="button" (click)="clearUser()" value="Clear User"/>
+  <label>User name:</label>
+  <input [(ngModel)]="loginUser.login" placeholder="user name"/>
+  <label>User email:</label>
+  <input [(ngModel)]="loginUser.email" placeholder="user email"/>
+  <div>
+    <input type="button" (click)="saveUser()" value="Save User"/>
+    <input type="button" (click)="clearUser()" value="Clear User"/>
+  </div>
 </div>

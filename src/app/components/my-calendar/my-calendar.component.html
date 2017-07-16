@@ -1,0 +1,13 @@
+<div>
+  <br/>
+  <input id="meeting" type="date" [(ngModel)]="selectedDate"/>
+</div>
+<div>
+  <select #sel (change)="onChangeFormatting(sel.value)">
+    <option *ngFor="let format of dateFormattingTypes | filterPipe:listFilter.value" [value]="format.code">{{format.name | uppercase}}</option>
+  </select>
+  <input type="text" #listFilter (keyup)="onKeyUp()"/>
+</div>
+<div>
+  <label>You selected: </label>{{selectedDate | date:selectedFormat}}
+</div>

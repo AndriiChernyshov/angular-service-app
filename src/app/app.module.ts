@@ -14,6 +14,9 @@ import { ObjectDefinitionService } from './services/object-definition.service';
 import { ObjectItemNewComponent } from './components/objects/object-item-new/object-item-new.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { FontSizeDirective } from './directives/font-size.directive';
+import { CounterComponent } from './components/counter/counter.component';
+import { MyCalendarComponent } from './components/my-calendar/my-calendar.component';
+import { FilterPipe } from './pipes/filter-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { FontSizeDirective } from './directives/font-size.directive';
     ObjectItemComponent,
     ObjectItemNewComponent,
     HighlightDirective,
-    FontSizeDirective
+    FontSizeDirective,
+    CounterComponent,
+    MyCalendarComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
